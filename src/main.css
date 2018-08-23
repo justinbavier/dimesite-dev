@@ -1,8 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
+body, html {
+  overflow-x: hidden;
+}
+
 .landing-content-wrapper {
   height: 100vh;
-  padding-top: 7.5%;
+  padding-top: 9.5%;
   background: linear-gradient(to bottom right, #1b9a9e, #38a98b) no-repeat;
   background-size: 400% 400%;
 
@@ -27,23 +31,93 @@
 /* ===== PROFILE ===== */
 /* =================== */
 .profile-page-header {
-  padding-top: 2.5%;
+  padding-top: 10%;
   min-width: 100%;
-  height: 55vh;
+  height: 62vh;
   background: linear-gradient(to bottom right, #1b9a9e, #38a98b) no-repeat;
-  background-size: 200% 55vh;
+  background-size: 200% 80vh;
 
   animation: GradientAnimation 15s ease infinite;
 }
 
 .profile-picture {
   text-align: center;
-  padding-bottom: 1.5%;
+  padding-bottom: 6.5%;
 }
+
 .profile-picture img {
   border: 2px solid white;
   border-radius: 50%;
-  width: 15%;
+  width: 45%;
+}
+
+/* SM */
+@media only screen and (min-width: 576px) {
+  .profile-page-header {
+    padding-top: 7.5%;
+    height: 60vh;
+    background-size: 200% 80vh;
+  }
+
+  .profile-picture {
+    padding-bottom: 5.5%;
+  }
+
+  .profile-picture img {
+    width: 30%;
+  }
+}
+
+/* MD */
+@media only screen and (min-width: 768px) {
+  .profile-page-header {
+    padding-top: 5%;
+    height: 60vh;
+    background-size: 200% 80vh;
+  }
+
+  .profile-picture {
+    padding-bottom: 4%;
+  }
+
+  .profile-picture img {
+    width: 25%;
+  }
+}
+
+/* LG */
+@media only screen and (min-width: 992px) {
+  .profile-page-header {
+    padding-top: 3.5%;
+    height: 55vh;
+    background-size: 200% 75vh;
+  }
+
+  .profile-picture {
+    padding-bottom: 3.25%;
+  }
+
+
+  .profile-picture img {
+    width: 20%;
+  }
+}
+
+/* XL */
+@media only screen and (min-width: 1200px) {
+  .profile-page-header {
+    padding-top: 2.5%;
+    height: 55vh;
+    background-size: 200% 55vh;
+  }
+
+  .profile-picture {
+    padding-bottom: 1.5%;
+  }
+
+  .profile-picture img {
+    width: 15%;
+  }
 }
 
 .profile-page-header p {
@@ -54,6 +128,15 @@
 
 .profile-page-body {
   padding: 1.5% 4.5% 4.5% 4.5%;
+}
+
+.charity-list {
+  padding: 1.5%;
+}
+
+.charity-list-header p {
+  text-align: center;
+  font-size: 1.25rem;
 }
 
 .transaction-list {
@@ -83,6 +166,7 @@
 
 .transaction-card-info-row {
   padding-top: 2.5%;
+  background: white;
 }
 
 /* ==================== */

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Row, Col,Progress } from 'antd';
 
-import Charity from './Charity';
+import CharityList from './CharityList';
 import TransactionList from './TransactionList';
 
 class ProfilePage extends Component {
@@ -12,7 +12,7 @@ class ProfilePage extends Component {
 
   renderContent() {
     if (this.props.auth) {
-      const {amountDonated, firstName, lastName, progress, id } = this.props.auth
+      const {amountDonated, firstName, lastName, id } = this.props.auth
       const hardProgress = 7.34;
       const profileUrl = 'https://s3.us-east-2.amazonaws.com/dime-charity/' + id + '.jpg';
       const cents = hardProgress.toFixed(2);
@@ -21,7 +21,7 @@ class ProfilePage extends Component {
           <div className="profile-page-header">
             <Row>
               <div className="profile-picture">
-                <img src={profileUrl} />
+                <img alt="profile" src={profileUrl} />
               </div>
             </Row>
             <Row>
@@ -30,7 +30,7 @@ class ProfilePage extends Component {
             </Row>
             <Row>
               <Col
-                xs={{ span: 10, offset: 7 }}
+                xs={{ span: 20, offset: 2 }}
                 sm={{ span: 10, offset: 7 }}
                 md={{ span: 10, offset: 7 }}
                 lg={{ span: 10, offset: 7 }}
@@ -44,17 +44,17 @@ class ProfilePage extends Component {
           <div className="profile-page-body">
             <Row>
               <Col
-                xs={{ span: 12 }}
-                sm={{ span: 12 }}
+                xs={{ span: 24 }}
+                sm={{ span: 24 }}
                 md={{ span: 12 }}
                 lg={{ span: 12 }}
                 xl={{ span: 12 }}
               >
-
+                <CharityList {...this.props.auth} />
               </Col>
               <Col
-                xs={{ span: 12 }}
-                sm={{ span: 12 }}
+                xs={{ span: 24 }}
+                sm={{ span: 24 }}
                 md={{ span: 12 }}
                 lg={{ span: 12 }}
                 xl={{ span: 12 }}

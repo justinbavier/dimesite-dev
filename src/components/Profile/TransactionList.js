@@ -4,6 +4,7 @@ import Transaction from './Transaction';
 
 class TransactionList extends Component {
   renderTransactions() {
+    console.log(this.props.transactions);
     if (this.props.transactions) {
       const { transactions } = this.props;
       return (

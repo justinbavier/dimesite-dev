@@ -3,7 +3,7 @@ import { Row, Col } from 'antd';
 
 class Transaction extends Component {
   render() {
-    const { amount, date, roundUp, name } = this.props.transaction;
+    const { date, roundUp, name } = this.props.transaction;
     return (
       <div className="transaction-card">
 

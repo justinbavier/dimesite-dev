@@ -50,8 +50,20 @@ class Navigation extends Component {
     return (
       <Header>
         <Row>
-          <Col xs={{ span: 24 }} sm={{ span: 24 }} md={{ span: 6 }} lg={{ span: 5 }} xl={{ span: 5 }}>
-            <Col xs={{ span: 4 }} sm={{ span: 4 }} md={{ span: 4 }} lg={{ span: 4 }} xl={{ span: 4 }}>
+          <Col
+            xs={{ span: 24 }}
+            sm={{ span: 24 }}
+            md={{ span: 6 }}
+            lg={{ span: 5 }}
+            xl={{ span: 5 }}
+          >
+            <Col
+              xs={{ span: 4, offset: 10 }}
+              sm={{ span: 2, offset: 11 }}
+              md={{ span: 4 }}
+              lg={{ span: 4 }}
+              xl={{ span: 4 }}
+            >
               <Link to="/">
                 <img alt="secondary-logo" src={SecondaryLogo} />
               </Link>
