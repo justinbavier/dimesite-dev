@@ -12,7 +12,10 @@ const store =
   createStore(
     reducers,
     {},
-    applyMiddleware(reduxThunk)
+    compose(
+      applyMiddleware(reduxThunk),
+      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    )
   )
 
 ReactDOM.render(
