@@ -1,6 +1,16 @@
 import apisauce from 'apisauce';
 import { FETCH_USER, LOGIN_ERROR } from './types';
 
+import Amplify, { Auth } from 'aws-amplify';
+
+Amplify.configure({
+  Auth: {
+    region: 'us-east-1',
+    userPoolId: 'us-east-1_GqVbXQQFj',
+    userPoolWebClientId: '231rss3d5vjps16qvf5fqnflpc',
+  }
+});
+
 const applicationJson = { 'Content-Type': 'application/json' }
 
 const create = () => {
@@ -9,56 +19,64 @@ const create = () => {
     timeout: 10000
   })
 
-  const tryLogin = async (data) => {
-    const resp = await api.post('/users/login', {
-      email: data.email,
-      password: data.password
-     }, {
+  const hydrateUser = async (data) => {
+    const resp = await api.get('/user/' + data, {
       applicationJson
     })
-    return resp;
+    return resp.data.user;
   }
 
-  const hydrateUser = async (data) => {
-    const resp = await api.post('/users/hydrate', {
-      id: data
-    }, {
+  const emailSignup = async (data) => {
+    const resp = await api.post('/prod/storeEmail', {
+      data,
       applicationJson
+    }).then(data => {
+      alert("Thank you for your interest! We'll let you know when we begin beta testing!")
+      window.location.reload();
+      return data.data;
     })
-    return resp;
+    return resp.data;
   }
 
   return {
-    tryLogin,
-    hydrateUser
+    hydrateUser,
+    emailSignup
   }
 }
 
 const api = create();
 
-export const tryLogin = (values, history) => async dispatch => {
-  const resp = await api.tryLogin(values);
-  if (resp.status !== 200) {
-    dispatch({ type: LOGIN_ERROR, payload: resp.data});
-    return resp.data;
-  } else {
-    dispatch({ type: FETCH_USER, payload: resp.data });
-    localStorage.setItem("id", resp.data.user.id);
-    history.push('/profile');
-    return resp;
-  }
+export const tryLogin = (values, history) => dispatch => {
+  Auth.signIn(values.email, values.password)
+    .then(user => api.hydrateUser(user.username)
+      .then(resp =>
+        dispatch({ type: FETCH_USER, payload: resp })
+      )
+    )
+  .catch(err => dispatch({ type: LOGIN_ERROR, payload: err.message }));
 };
 
 export const hydrateUser = (id) => async dispatch => {
-  if (!id) {
-    return;
-  } else {
-    const resp = await api.hydrateUser(id);
-    dispatch({ type: FETCH_USER, payload: resp.data });
-  }
+  Auth.currentAuthenticatedUser()
+    .then(user => api.hydrateUser(user.username)
+      .then(resp => 
+        dispatch({ type: FETCH_USER, payload: resp })
+      )
+    )
+    .catch(err => {
+        return err;
+      }
+    )
 }
 
 export const logout = () => async dispatch => {
-  localStorage.setItem("id", "");
+  Auth.signOut()
+    .then(data => console.log(data))
+    .catch(err => console.log(err));
   dispatch({ type: FETCH_USER, payload: '' });
+}
+
+export const signupEmail = (values) => async dispatch => {
+  api.emailSignup(values);
+  return;
 }

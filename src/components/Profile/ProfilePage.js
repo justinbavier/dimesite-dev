@@ -6,29 +6,19 @@ import CharityList from './CharityList';
 import TransactionList from './TransactionList';
 
 class ProfilePage extends Component {
-  componentDidMount() {
-    this.props.hydrateUser(localStorage.id);
-  }
-
   renderContent() {
     if (this.props.auth) {
-      const {amountDonated, firstName, lastName, id } = this.props.auth
-      const hardProgress = 7.34;
-      const profileUrl = 'https://s3.us-east-2.amazonaws.com/dime-charity/' + id + '.jpg';
-      const cents = hardProgress.toFixed(2);
+      const {totalDonated, firstName, lastName, progress } = this.props.auth
+      const totalDonatedCents = totalDonated / 100;
+      const progressCents = progress / 100;
       return (
         <div>
           <div className="profile-page-header">
             <Row>
-              <div className="profile-picture">
-                <img alt="profile" src={profileUrl} />
-              </div>
-            </Row>
-            <Row>
               <p>{` Welcome back, ${firstName} ${lastName}! `}</p>
-              <p>{` So far, you've donated $${amountDonated} `}</p>
+              <p>{` So far, you've donated $${totalDonatedCents.toFixed(2)} `}</p>
             </Row>
-            <Row>
+            <Row className="profile-progress-bar">
               <Col
                 xs={{ span: 20, offset: 2 }}
                 sm={{ span: 10, offset: 7 }}
@@ -36,8 +26,17 @@ class ProfilePage extends Component {
                 lg={{ span: 10, offset: 7 }}
                 xl={{ span: 10, offset: 7 }}
               >
-                <Progress status="active" strokeColor="#2B2F37" percent={cents * 10} format={(percent => `$${cents}`)}/>
+                <Progress
+                  showInfo={false} 
+                  status="active" 
+                  strokeColor="#2B2F37" 
+                  percent={progressCents * 10} 
+                  format={(percent => `$${progressCents}`)}
+                />
               </Col>
+            </Row>
+            <Row>
+              <p>{` $${progressCents.toFixed(2)} until your next donation is made.`}</p>
             </Row>
           </div>
 

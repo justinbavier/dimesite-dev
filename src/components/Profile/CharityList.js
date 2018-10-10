@@ -4,10 +4,10 @@ import Charity from './Charity';
 
 class CharityList extends Component {
   renderCharities() {
-    if (this.props.charities) {
-      const { charities } = this.props
+    if (this.props.queuedCharities) {
+      const { queuedCharities } = this.props
       return (
-        charities.map((charity, index) =>
+        queuedCharities.map((charity, index) =>
           <Charity {...this.props} charity={charity} key={index} />
         )
       )

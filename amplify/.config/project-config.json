@@ -1,0 +1,20 @@
+{
+    "projectName": "dimesitedev",
+    "projectPath": "/mnt/c/Users/jbavi/workspace/dime/dimesite-dev",
+    "defaultEditor": "code",
+    "frontendHandler": {
+        "javascript": "/mnt/c/Users/jbavi/AppData/Roaming/npm/node_modules/@aws-amplify/cli/node_modules/amplify-frontend-javascript"
+    },
+    "javascript": {
+        "framework": "react",
+        "config": {
+            "SourceDir": "src",
+            "DistributionDir": "build",
+            "BuildCommand": "react-app-rewired build",
+            "StartCommand": "react-app-rewired-start"
+        }
+    },
+    "providers": {
+        "awscloudformation": "/mnt/c/Users/jbavi/AppData/Roaming/npm/node_modules/@aws-amplify/cli/node_modules/amplify-provider-awscloudformation"
+    }
+}

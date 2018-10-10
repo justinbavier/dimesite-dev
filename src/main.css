@@ -2,11 +2,12 @@
 
 body, html {
   overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 .landing-content-wrapper {
   height: 100vh;
-  padding-top: 9.5%;
+  padding-top: 6.5%;
   background: linear-gradient(to bottom right, #1b9a9e, #38a98b) no-repeat;
   background-size: 400% 400%;
 
@@ -20,6 +21,125 @@ body, html {
   border-bottom: 2px solid #2B2F37;
 }
 
+/* =================== */
+/* ===== LANDING ===== */
+/* =================== */
+.has-error .ant-form-explain, .has-error .ant-form-split {
+  color: white;
+}
+
+.scroll-button-row, .arrow-down-row {
+  margin-top: 3.5%;
+}
+
+.scroll-button {
+  width: 100%;
+}
+
+/* ====================== */
+/* ===== ONBOARDING ===== */
+/* ====================== */
+.welcome-onboarding-wrapper {
+  background: #2B2F37;
+  padding: 10% 10% 10% 10%;
+  text-align: left;
+  height: 85vh;
+}
+
+.welcome-onboarding-wrapper p, .welcome-onboarding-wrapper h1 {
+  color: white;
+}
+
+.welcome-onboarding-wrapper p {
+  font-size: 125%;
+}
+
+.mobile-welcome-onboarding-wrapper {
+  background: #2B2F37;
+  padding: 10% 10% 10% 10%;
+  text-align: center;
+}
+
+.mobile-welcome-onboarding-wrapper p, .mobile-welcome-onboarding-wrapper h1 {
+  color: white;
+}
+
+.mobile-welcome-onboarding-wrapper p {
+  font-size: 125%;
+}
+
+.mobile-welcome-onboarding-wrapper img {
+  padding: 25%;
+}
+
+.charities-onboarding-wrapper {
+  background: #F1F2F2;
+  padding: 10% 10% 10% 10%;
+  text-align: right;
+  color: #2B2F37;
+  height: 85vh;
+}
+
+.charities-onboarding-wrapper p, .charities-onboarding-wrapper h1 {
+  color: #2B2F37;
+}
+
+.charities-onboarding-wrapper p {
+  font-size: 125%;
+}
+
+.mobile-charities-onboarding-wrapper {
+  background: #F1F2F2;
+  padding: 10% 10% 10% 10%;
+  text-align: center;
+}
+
+.mobile-charities-onboarding-wrapper p, .mobile-charities-onboarding-wrapper h1 {
+  color: #2B2F37;
+}
+
+.mobile-charities-onboarding-wrapper p {
+  font-size: 125%;
+}
+
+.mobile-charities-onboarding-wrapper img {
+  padding: 25%;
+}
+
+.roundups-onboarding-wrapper {
+  background: #4ABFAB;
+  padding: 10% 10% 10% 10%;
+  text-align: left;
+  height: 85vh;
+}
+
+.roundups-onboarding-wrapper p, .roundups-onboarding-wrapper h1 {
+  color: white;
+}
+
+.roundups-onboarding-wrapper p {
+  font-size: 125%;
+}
+
+.mobile-roundups-onboarding-wrapper {
+  background: #2B2F37;
+  padding: 10% 10% 10% 10%;
+  text-align: center;
+}
+
+.mobile-roundups-onboarding-wrapper p, .mobile-roundups-onboarding-wrapper h1 {
+  color: white;
+}
+
+.mobile-roundups-onboarding-wrapper p {
+  font-size: 125%;
+}
+
+.mobile-roundups-onboarding-wrapper img {
+  padding: 25%;
+}
+
+
 /* ================= */
 /* ===== LOGIN ===== */
 /* ================= */
@@ -31,99 +151,23 @@ body, html {
 /* ===== PROFILE ===== */
 /* =================== */
 .profile-page-header {
-  padding-top: 10%;
+  padding-top: 2.5%;
+  padding-bottom: 2.5%;
   min-width: 100%;
-  height: 62vh;
   background: linear-gradient(to bottom right, #1b9a9e, #38a98b) no-repeat;
   background-size: 200% 80vh;
 
   animation: GradientAnimation 15s ease infinite;
 }
 
-.profile-picture {
-  text-align: center;
-  padding-bottom: 6.5%;
-}
-
-.profile-picture img {
-  border: 2px solid white;
-  border-radius: 50%;
-  width: 45%;
-}
-
-/* SM */
-@media only screen and (min-width: 576px) {
-  .profile-page-header {
-    padding-top: 7.5%;
-    height: 60vh;
-    background-size: 200% 80vh;
-  }
-
-  .profile-picture {
-    padding-bottom: 5.5%;
-  }
-
-  .profile-picture img {
-    width: 30%;
-  }
-}
-
-/* MD */
-@media only screen and (min-width: 768px) {
-  .profile-page-header {
-    padding-top: 5%;
-    height: 60vh;
-    background-size: 200% 80vh;
-  }
-
-  .profile-picture {
-    padding-bottom: 4%;
-  }
-
-  .profile-picture img {
-    width: 25%;
-  }
-}
-
-/* LG */
-@media only screen and (min-width: 992px) {
-  .profile-page-header {
-    padding-top: 3.5%;
-    height: 55vh;
-    background-size: 200% 75vh;
-  }
-
-  .profile-picture {
-    padding-bottom: 3.25%;
-  }
-
-
-  .profile-picture img {
-    width: 20%;
-  }
-}
-
-/* XL */
-@media only screen and (min-width: 1200px) {
-  .profile-page-header {
-    padding-top: 2.5%;
-    height: 55vh;
-    background-size: 200% 55vh;
-  }
-
-  .profile-picture {
-    padding-bottom: 1.5%;
-  }
-
-  .profile-picture img {
-    width: 15%;
-  }
-}
-
 .profile-page-header p {
   text-align: center;
   color: white;
   font-size: 1.45rem;
+}
+
+.profile-progress-bar {
+  margin-bottom: 23.2px;
 }
 
 .profile-page-body {

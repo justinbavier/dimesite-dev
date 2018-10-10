@@ -20,7 +20,7 @@ class Navigation extends Component {
             mode="horizontal"
             style={{ lineHeight: '70px', float: 'right' }}
           >
-            <Menu.Item key="1">
+            {/* <Menu.Item key="1">
               <Link to="/login">
                 {` Login `}
               </Link>
@@ -29,7 +29,7 @@ class Navigation extends Component {
               <Link to="/signup">
                 {` Join `}
               </Link>
-            </Menu.Item>
+            </Menu.Item> */}
           </Menu>
         )
       default:
@@ -40,6 +40,11 @@ class Navigation extends Component {
             style={{ lineHeight: '70px', float: 'right' }}
           >
             <Menu.Item key="1">
+              <Link to ="/profile">
+                {` Profile `}
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="1">
               <LogoutButton />
             </Menu.Item>
           </Menu>
@@ -48,7 +53,7 @@ class Navigation extends Component {
   }
   render() {
     return (
-      <Header>
+      <Header id="navigation">
         <Row>
           <Col
             xs={{ span: 24 }}

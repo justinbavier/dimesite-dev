@@ -18,7 +18,10 @@ module.exports = function override(config, env) {
       "@menu-bg" : "@layout-header-background",
       "@menu-item-active-bg" : "#4fABFAB",
       "@menu-item-color" : "#ffffff",
-      "@btn-default-bg" : "transparent",
+      "@btn-default-color" : "white",
+      "@btn-default-bg" : "#2B2F37",
+      "@btn-disable-color" : "@disabled-color",
+      "@btn-disable-bg" : "@disabled-bg",
       "@border-color-base" : "#2B2F37"
     },
     javascriptEnabled: true,

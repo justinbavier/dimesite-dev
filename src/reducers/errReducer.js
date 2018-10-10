@@ -5,7 +5,7 @@ export default function(state = null, action) {
     case LOGIN_ERROR:
       const loginErrState = {...state};
       if (action.payload) {
-        loginErrState.error = action.payload.message
+        loginErrState.error = action.payload
       }
       return loginErrState;
     default:

@@ -11,6 +11,8 @@ import LoginPage from './Login/LoginPage';
 import SignupPage from './Signup/SignupPage';
 import ProfilePage from './Profile/ProfilePage';
 
+
+
 const { Footer, Content } = Layout;
 
 function mapStateToProps(state) {
@@ -21,7 +23,7 @@ function mapStateToProps(state) {
 
 class App extends Component {
   componentDidMount() {
-    this.props.hydrateUser(localStorage.id);
+    this.props.hydrateUser();
   }
 
   render() {
